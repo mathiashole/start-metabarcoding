@@ -16,3 +16,9 @@ if (!requireNamespace("googledrive", quietly = TRUE)) {
 }
 
 library(googledrive)
+
+drive_deauth() # No hace falta iniciar sesión porque la carpeta es pública.
+
+carpeta_taller <- as_id(
+  "https://drive.google.com/drive/folders/1SOhCrJXgrtucWavxsxizLY4FErL3Almk"
+)
