@@ -11,3 +11,8 @@ dir.create("/home/jmangino/metabarcoding/data", showWarnings = FALSE)
 
 setwd("/home/jmangino/metabarcoding/data")
 
+if (!requireNamespace("googledrive", quietly = TRUE)) {
+  install.packages("googledrive")
+}
+
+library(googledrive)
