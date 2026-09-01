@@ -115,3 +115,12 @@ head(colnames(seqtab_ps))
 head(rownames(taxa_ps))
 
 # --------------------------------------------------------------------------------
+# Create phyloseq object
+
+OTU <- otu_table(
+  seqtab_ps,
+  taxa_are_rows = FALSE
+)
+
+OTU
+taxa_are_rows(OTU)
