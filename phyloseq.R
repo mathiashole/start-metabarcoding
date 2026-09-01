@@ -323,3 +323,19 @@ ps_cpm <- transform_sample_counts(
 )
 
 head(sample_sums(ps_cpm))
+
+# ---------------------------------------------------------------------------------
+# Rarefaction curves
+min_depth <- min(sample_sums(ps))
+min_depth
+
+ps_rare <- rarefy_even_depth(
+  ps,
+  sample.size = min_depth,
+  rngseed = 123,
+  replace = FALSE,
+  trimOTUs = TRUE,
+  verbose = FALSE
+)
+
+sample_sums(ps_rare)
