@@ -306,3 +306,10 @@ plot_bar(
 dev.off()
 
 # ---------------------------------------------------------------------------------
+# abundance relative to total reads
+ps_rel <- transform_sample_counts(
+  ps,
+  function(x) x / sum(x)
+)
+
+head(sample_sums(ps_rel))
