@@ -313,3 +313,13 @@ ps_rel <- transform_sample_counts(
 )
 
 head(sample_sums(ps_rel))
+
+# ---------------------------------------------------------------------------------
+# CPM counts per millions
+
+ps_cpm <- transform_sample_counts(
+  ps,
+  function(x) (x / sum(x)) * 1e6
+)
+
+head(sample_sums(ps_cpm))
