@@ -142,3 +142,11 @@ SAM <- sample_data(
 SAM
 
 # --------------------------------------------------------------------------------
+# create phyloseq object
+ps <- phyloseq(
+  otu_table = OTU,
+  tax_table = TAX,
+  sample_data = SAM
+)
+
+ps
