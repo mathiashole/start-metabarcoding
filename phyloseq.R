@@ -179,4 +179,34 @@ max(depth)
 
 max(depth) / min(depth)
 
+# plots of depth of sequencing
+
+depth_df <- data.frame(
+  Reads = sample_sums(ps),
+  sample_data(ps),
+  check.names = FALSE
+)
+
+png("depth_plot.png", width = 2100, height = 1500, res = 300)
+
+ggplot(
+  depth_df,
+  aes(
+    x = reorder(Sample, Reads),
+    y = Reads,
+    fill = Sampling_position
+  )
+) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    x = "Muestra",
+    y = "Número de reads",
+    fill = "Posición de muestreo",
+    title = "Profundidad de secuenciación"
+  ) +
+  theme_bw()
+
+dev.off()
+
 # --------------------------------------------------------------------------------
