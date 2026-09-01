@@ -12,3 +12,80 @@ library(ggplot2)
 library(dplyr)
 
 set.seed(123)
+
+# --------------------------------------------------------------------------------
+
+data_dir <- "/home/jmangino/metabarcoding/data"
+
+seqtab_file <- file.path(data_dir, "seqtab.nochim.rds")
+taxa_file   <- file.path(data_dir, "taxa_gtdb")
+meta_file   <- file.path(data_dir, "sampleData_alimentos.csv")
+
+# ---------------------------------------------------------------------------------
+
+seqtab.nochim <- readRDS(seqtab_file)
+
+class(seqtab.nochim)
+dim(seqtab.nochim)
+
+head(rownames(seqtab.nochim))
+substr(colnames(seqtab.nochim)[1:3], 1, 80)
+
+# --------------------------------------------------------------------------------
+
+metadata <- read.csv(
+  meta_file,
+  stringsAsFactors = FALSE,
+  check.names = FALSE
+)
+
+head(metadata)
+dim(metadata)
+
+colnames(metadata)
+
+rownames(metadata) <- metadata$Run
+
+# Creamos un nombre sin espacios para usarlo más fácilmente en el práctico.
+metadata$Sampling_position <- metadata[["Sampling position"]]
+
+# --------------------------------------------------------------------------------
+
+load(taxa_file)
+
+class(taxa_gtdb)
+dim(taxa_gtdb)
+head(taxa_gtdb)
+
+colnames(taxa_gtdb)
+
+# --------------------------------------------------------------------------------
+
+samples_in_counts <- rownames(seqtab.nochim)
+samples_in_meta   <- rownames(metadata)
+
+setdiff(samples_in_counts, samples_in_meta)
+setdiff(samples_in_meta, samples_in_counts)
+
+# Reordenar metadata de acuerdo con la tabla de ASVs
+metadata_ps <- metadata[samples_in_counts, , drop = FALSE]
+
+identical(
+  rownames(seqtab.nochim),
+  rownames(metadata_ps)
+)
+
+# --------------------------------------------------------------------------------
+
+asvs_in_counts <- colnames(seqtab.nochim)
+asvs_in_tax    <- rownames(taxa_gtdb)
+
+length(asvs_in_counts)
+length(asvs_in_tax)
+
+common_asvs <- intersect(
+  asvs_in_counts,
+  asvs_in_tax
+)
+
+length(common_asvs)
