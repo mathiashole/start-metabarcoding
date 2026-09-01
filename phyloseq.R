@@ -410,3 +410,33 @@ alpha_long <- data.frame(
     alpha_df$Simpson
   )
 )
+
+# -----------------------------------------------------------------------------------
+# plot alphadiversity
+
+png("alphaDiversity.png", width = 2100, height = 1500, res = 300)
+
+ggplot(
+  alpha_long,
+  aes(
+    x = Sampling_position,
+    y = Value,
+    fill = Sampling_position
+  )
+) +
+  geom_boxplot() +
+  facet_wrap(
+    ~Metric,
+    scales = "free_y"
+  ) +
+  labs(
+    x = "Posición de muestreo",
+    y = "Índice de diversidad"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "none"
+  )
+
+dev.off()
