@@ -221,3 +221,11 @@ head(
 
 # --------------------------------------------------------------------------------
 # Subsetting and filtering
+# filtering samples
+ps_sticking <- subset_samples(
+  ps,
+  Sampling_position == "Sticking"
+)
+
+ps_sticking
+
