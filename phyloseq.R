@@ -247,3 +247,13 @@ ps_abundant <- prune_taxa(
 )
 
 ps_abundant
+
+# --------------------------------------------------------------------------------
+# Keep ASV with at least 5 sample
+ps_prevalent <- filter_taxa(
+  ps,
+  function(x) sum(x > 0) >= 5,
+  prune = TRUE
+)
+
+ps_prevalent
