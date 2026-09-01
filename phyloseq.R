@@ -113,3 +113,5 @@ rownames(taxa_ps) <- asv_ids
 head(asv_map)
 head(colnames(seqtab_ps))
 head(rownames(taxa_ps))
+
+# --------------------------------------------------------------------------------
