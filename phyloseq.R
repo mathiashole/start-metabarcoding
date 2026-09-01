@@ -339,3 +339,30 @@ ps_rare <- rarefy_even_depth(
 )
 
 sample_sums(ps_rare)
+
+depth_rare_df <- data.frame(
+  Reads = sample_sums(ps_rare),
+  sample_data(ps_rare),
+  check.names = FALSE
+)
+
+png("rarefaction.png", width = 2100, height = 1500, res = 300)
+
+ggplot(
+  depth_rare_df,
+  aes(
+    x = Sample,
+    y = Reads,
+    fill = Sampling_position
+  )
+) +
+  geom_col() +
+  labs(
+    x = "Muestra",
+    y = "Número de reads",
+    fill = "Posición de muestreo",
+    title = "Profundidad después de rarefacción"
+  ) +
+  theme_bw()
+
+dev.off()
