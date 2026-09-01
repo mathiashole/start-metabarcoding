@@ -167,3 +167,14 @@ head(as(tax_table(ps), "matrix"))
 head(data.frame(sample_data(ps)))
 
 #--------------------------------------------------------------------------------
+# depth of sequencing
+depth <- sample_sums(ps)
+
+head(depth)
+summary(depth)
+
+min(depth)
+median(depth)
+max(depth)
+
+# --------------------------------------------------------------------------------
