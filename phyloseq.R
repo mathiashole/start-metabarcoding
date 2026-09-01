@@ -229,3 +229,11 @@ ps_sticking <- subset_samples(
 
 ps_sticking
 
+# ---------------------------------------------------------------------------------
+# filtering taxa
+ps_firmicutes <- subset_taxa(
+  ps,
+  Phylum == "Firmicutes"
+)
+
+ps_firmicutes
