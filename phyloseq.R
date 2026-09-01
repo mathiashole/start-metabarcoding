@@ -93,3 +93,23 @@ length(common_asvs)
 seqtab_ps <- seqtab.nochim[, common_asvs, drop = FALSE]
 taxa_ps   <- taxa_gtdb[common_asvs, , drop = FALSE]
 
+# --------------------------------------------------------------------------------
+# renombrar la secuencias de ASVs para que sean más fáciles de manejar
+
+# Guardamos primero la correspondencia entre el nuevo ID y la secuencia original.
+asv_sequences <- colnames(seqtab_ps)
+asv_ids <- paste0("ASV", seq_along(asv_sequences))
+
+asv_map <- data.frame(
+  ASV = asv_ids,
+  Sequence = asv_sequences,
+  stringsAsFactors = FALSE
+)
+
+# Renombramos de la misma forma la tabla de abundancias y la tabla taxonómica.
+colnames(seqtab_ps) <- asv_ids
+rownames(taxa_ps) <- asv_ids
+
+head(asv_map)
+head(colnames(seqtab_ps))
+head(rownames(taxa_ps))
