@@ -237,3 +237,6 @@ ps_firmicutes <- subset_taxa(
 )
 
 ps_firmicutes
+
+# --------------------------------------------------------------------------------
+# Keep ASV with at least 100 reads across all samples
