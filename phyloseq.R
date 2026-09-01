@@ -155,4 +155,15 @@ nsamples(ps)
 ntaxa(ps)
 
 # --------------------------------------------------------------------------------
+# explore the phyloseq object
+head(sample_names(ps))
+head(taxa_names(ps))
 
+rank_names(ps)
+sample_variables(ps)
+
+otu_table(ps)[1:5, 1:5]
+head(as(tax_table(ps), "matrix"))
+head(data.frame(sample_data(ps)))
+
+#--------------------------------------------------------------------------------
