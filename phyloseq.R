@@ -210,3 +210,11 @@ ggplot(
 dev.off()
 
 # --------------------------------------------------------------------------------
+# explore the phyloseq object
+head(
+  sort(
+    taxa_sums(ps),
+    decreasing = TRUE
+  ),
+  20
+)
