@@ -257,3 +257,23 @@ ps_prevalent <- filter_taxa(
 )
 
 ps_prevalent
+
+# ---------------------------------------------------------------------------------
+# Clustering taxonomically
+ps_phylum <- tax_glom(
+  ps,
+  taxrank = "Phylum",
+  NArm = TRUE
+)
+
+ps_genus <- tax_glom(
+  ps,
+  taxrank = "Genus",
+  NArm = TRUE
+)
+
+c(
+  ASVs = ntaxa(ps),
+  Phyla = ntaxa(ps_phylum),
+  Genera = ntaxa(ps_genus)
+)
