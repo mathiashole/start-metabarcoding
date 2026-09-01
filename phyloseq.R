@@ -277,3 +277,26 @@ c(
   Phyla = ntaxa(ps_phylum),
   Genera = ntaxa(ps_genus)
 )
+
+# --------------------------------------------------------------------------------
+# Taxonomic composition
+
+ps_phylum_rel <- transform_sample_counts(
+  ps_phylum,
+  function(x) x / sum(x)
+)
+
+plot_bar(
+  ps_phylum_rel,
+  x = "Sample",
+  fill = "Phylum"
+) +
+  labs(
+    x = "Muestra",
+    y = "Abundancia relativa",
+    title = "Composición taxonómica a nivel de Phylum"
+  ) +
+  theme_bw() +
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1)
+  )
