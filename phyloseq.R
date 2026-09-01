@@ -134,3 +134,9 @@ TAX <- tax_table(
 TAX
 
 # --------------------------------------------------------------------------------
+# create sample data
+SAM <- sample_data(
+  metadata_ps
+)
+
+SAM
