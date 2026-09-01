@@ -286,6 +286,8 @@ ps_phylum_rel <- transform_sample_counts(
   function(x) x / sum(x)
 )
 
+png("phylum_barplot.png", width = 2100, height = 1500, res = 300)
+
 plot_bar(
   ps_phylum_rel,
   x = "Sample",
@@ -300,3 +302,7 @@ plot_bar(
   theme(
     axis.text.x = element_text(angle = 90, hjust = 1)
   )
+
+dev.off()
+
+# ---------------------------------------------------------------------------------
