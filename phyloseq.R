@@ -126,3 +126,9 @@ OTU
 taxa_are_rows(OTU)
 
 # --------------------------------------------------------------------------------
+# create taxa table
+TAX <- tax_table(
+  as.matrix(taxa_ps)
+)
+
+TAX
