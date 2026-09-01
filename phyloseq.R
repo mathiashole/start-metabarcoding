@@ -240,3 +240,10 @@ ps_firmicutes
 
 # --------------------------------------------------------------------------------
 # Keep ASV with at least 100 reads across all samples
+
+ps_abundant <- prune_taxa(
+  taxa_sums(ps) >= 100,
+  ps
+)
+
+ps_abundant
