@@ -89,3 +89,7 @@ common_asvs <- intersect(
 )
 
 length(common_asvs)
+
+seqtab_ps <- seqtab.nochim[, common_asvs, drop = FALSE]
+taxa_ps   <- taxa_gtdb[common_asvs, , drop = FALSE]
+
