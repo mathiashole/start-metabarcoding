@@ -366,3 +366,47 @@ ggplot(
   theme_bw()
 
 dev.off()
+
+# ---------------------------------------------------------------------------------
+# alpha diversity
+
+alpha <- estimate_richness(
+  ps_rare,
+  measures = c(
+    "Observed",
+    "Shannon",
+    "Simpson"
+  )
+)
+
+alpha$Run <- rownames(alpha)
+
+meta_rare <- data.frame(sample_data(ps_rare))
+meta_rare$Run <- rownames(meta_rare)
+
+alpha_df <- merge(
+  alpha,
+  meta_rare,
+  by = "Run",
+  all.x = TRUE
+)
+
+head(alpha_df)
+
+# index
+
+alpha_long <- data.frame(
+  Sampling_position = rep(alpha_df$Sampling_position, times = 3),
+  Metric = factor(
+    rep(
+      c("Observed", "Shannon", "Simpson"),
+      each = nrow(alpha_df)
+    ),
+    levels = c("Observed", "Shannon", "Simpson")
+  ),
+  Value = c(
+    alpha_df$Observed,
+    alpha_df$Shannon,
+    alpha_df$Simpson
+  )
+)
