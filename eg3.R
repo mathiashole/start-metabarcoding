@@ -105,3 +105,11 @@ tse_d4 <- addAlpha(
   index = "simpson_evenness",
   name = "simpson_evenness"
 )
+
+# Chao1: estima la riqueza considerando las ASV poco frecuentes.
+tse_d4 <- addAlpha(
+  tse_d4,
+  assay.type = "counts",
+  index = "chao1_richness",
+  name = "chao1"
+)
