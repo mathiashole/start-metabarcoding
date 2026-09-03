@@ -280,3 +280,31 @@ sd_alpha <- aggregate(
 
 media_alpha
 sd_alpha
+
+# Mediana y rango intercuartílico: resumen robusto y coherente
+# con la comparación no paramétrica.
+
+mediana_alpha <- aggregate(
+  cbind(
+    observed,
+    shannon,
+    simpson_evenness,
+    chao1
+  ) ~ Sampling.position,
+  data = alpha,
+  FUN = median
+)
+
+iqr_alpha <- aggregate(
+  cbind(
+    observed,
+    shannon,
+    simpson_evenness,
+    chao1
+  ) ~ Sampling.position,
+  data = alpha,
+  FUN = IQR
+)
+
+mediana_alpha
+iqr_alpha
