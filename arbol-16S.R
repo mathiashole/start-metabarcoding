@@ -69,7 +69,7 @@ plotRowTree(
 dev.off()
 
 
-pdf("arbol-tse_r.pdf")
+pdf("arbol-tse_r.pdf") # root
 plotRowTree(
   tse_r,
   tip_colour_by = "Phylum",   # or Genus, etc. - any column in rowData(tse)
