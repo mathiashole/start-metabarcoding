@@ -113,3 +113,13 @@ tse_d4 <- addAlpha(
   index = "chao1_richness",
   name = "chao1"
 )
+
+# Construir una tabla con los resultados.
+alpha <- as.data.frame(colData(tse_d4))[
+  ,
+  c(
+    "Sample", "Sampling.position", "observed", "shannon",
+    "simpson_evenness", "chao1"
+  )
+]
+
