@@ -213,3 +213,10 @@ wilcox_chao1 <- wilcox.test(
   paired = TRUE,
   exact = TRUE
 )
+
+# Mostrar los resultados individuales.
+
+wilcox_observed
+wilcox_shannon
+wilcox_simpson
+wilcox_chao1
