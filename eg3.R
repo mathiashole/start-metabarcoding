@@ -192,3 +192,10 @@ wilcox_observed <- wilcox.test(
   paired = TRUE,
   exact = TRUE
 )
+
+wilcox_shannon <- wilcox.test(
+  alpha$shannon[alpha$Sampling.position == "Sticking"],
+  alpha$shannon[alpha$Sampling.position == "After singeing"],
+  paired = TRUE,
+  exact = TRUE
+)
