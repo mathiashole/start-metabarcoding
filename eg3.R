@@ -199,3 +199,10 @@ wilcox_shannon <- wilcox.test(
   paired = TRUE,
   exact = TRUE
 )
+
+wilcox_simpson <- wilcox.test(
+  alpha$simpson_evenness[alpha$Sampling.position == "Sticking"],
+  alpha$simpson_evenness[alpha$Sampling.position == "After singeing"],
+  paired = TRUE,
+  exact = TRUE
+)
