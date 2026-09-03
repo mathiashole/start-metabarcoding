@@ -206,3 +206,10 @@ wilcox_simpson <- wilcox.test(
   paired = TRUE,
   exact = TRUE
 )
+
+wilcox_chao1 <- wilcox.test(
+  alpha$chao1[alpha$Sampling.position == "Sticking"],
+  alpha$chao1[alpha$Sampling.position == "After singeing"],
+  paired = TRUE,
+  exact = TRUE
+)
