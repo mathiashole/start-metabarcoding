@@ -185,3 +185,10 @@ stopifnot(
 # Aplicar la prueba de Wilcoxon pareada para cada índice.
 # La prueba evalúa si existe un cambio sistemático dentro de los animales
 # entre Sticking y After singeing.
+
+wilcox_observed <- wilcox.test(
+  alpha$observed[alpha$Sampling.position == "Sticking"],
+  alpha$observed[alpha$Sampling.position == "After singeing"],
+  paired = TRUE,
+  exact = TRUE
+)
