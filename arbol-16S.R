@@ -13,11 +13,12 @@ seqs <- DNAStringSet(asv_map$Sequence)
 names(seqs) <- asv_map$ASV
 
 # --- Alineamiento ---
-alignment <- AlignSeqs(seqs, anchor = NA, verbose = FALSE)
+alignment <- AlignSeqs(seqs, anchor = NA, verbose = FALSE) # esto demora mucho
 
 # Exportar el alineamiento para FastTree
 writeXStringSet(alignment, filepath = "alignment_ps.fasta")
 
+alignment <- readDNAStringSet("/home/jmangino/metabarcoding/data/alignment_ps.fasta")
 
 ## Bash #########################################################################################
 # --- Hacer árbol de ML con FastTree usando el alineamiento (etiquetas serán ASV1, ASV2, ...) ---
@@ -42,7 +43,7 @@ ps_final <- merge_phyloseq(ps, phy_tree(tree), refseq(seqs))
 
 ps_final
 refseq(ps_final)
-
+phy_tree(ps_final)
 saveRDS(ps_final, "ps_final.rds")
 
 
