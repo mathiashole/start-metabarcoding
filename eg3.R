@@ -220,3 +220,34 @@ wilcox_observed
 wilcox_shannon
 wilcox_simpson
 wilcox_chao1
+
+
+# Reunir los valores p en una sola tabla.
+
+resultados_wilcoxon <- data.frame(
+  indice = c(
+    "Riqueza observada",
+    "Shannon",
+    "Uniformidad de Simpson",
+    "Chao1"
+  ),
+  p_value = c(
+    wilcox_observed$p.value,
+    wilcox_shannon$p.value,
+    wilcox_simpson$p.value,
+    wilcox_chao1$p.value
+  )
+)
+
+resultados_wilcoxon
+
+
+# Como analizamos cuatro índices, ajustamos los valores p mediante
+# el procedimiento de Benjamini-Hochberg.
+
+resultados_wilcoxon$p_ajustado_BH <- p.adjust(
+  resultados_wilcoxon$p_value,
+  method = "BH"
+)
+
+resultados_wilcoxon
