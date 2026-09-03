@@ -308,3 +308,27 @@ iqr_alpha <- aggregate(
 
 mediana_alpha
 iqr_alpha
+
+# 5. GRAFICAR LA DIVERSIDAD ALFA ---------------------------------------------
+
+# Pasar la tabla a formato largo permite representar los cuatro índices
+# en una misma figura. Cada panel conserva su propia escala vertical.
+
+alpha_long <- reshape(
+  alpha,
+  varying = c(
+    "observed",
+    "shannon",
+    "simpson_evenness",
+    "chao1"
+  ),
+  v.names = "valor",
+  timevar = "indice",
+  times = c(
+    "Riqueza observada",
+    "Shannon",
+    "Uniformidad de Simpson",
+    "Chao1"
+  ),
+  direction = "long"
+)
