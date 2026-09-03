@@ -77,3 +77,15 @@ tse_d4$Farmer <- droplevels(tse_d4$Farmer)
 
 # Comprobar cuántas muestras quedaron en cada grupo.
 table(tse_d4$Sampling.position)
+
+# 3. DIVERSIDAD ALFA ----------------------------------------------------------
+
+# La diversidad alfa describe la diversidad dentro de cada muestra.
+
+# Riqueza observada: número de ASV detectadas.
+tse_d4 <- addAlpha(
+  tse_d4,
+  assay.type = "subsampled",
+  index = "observed_richness",
+  name = "observed"
+)
