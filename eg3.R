@@ -97,3 +97,11 @@ tse_d4 <- addAlpha(
   index = "shannon_diversity",
   name = "shannon"
 )
+
+# Uniformidad de Simpson: indica cuán uniformes son las abundancias.
+tse_d4 <- addAlpha(
+  tse_d4,
+  assay.type = "subsampled",
+  index = "simpson_evenness",
+  name = "simpson_evenness"
+)
