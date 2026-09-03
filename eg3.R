@@ -61,3 +61,19 @@ colSums(assay(tse, "rarefiedRelabundance"))[1:6]
 
 table(assay(tse, "pa"))  
 
+# 2. SELECCIONAR LAS MUESTRAS -------------------------------------------------
+
+# Para este ejercicio trabajaremos solamente con muestras de Sticking y de
+# After singeing
+tse_d4 <- tse[
+  ,
+  tse$Sampling.position %in% c("Sticking", "After singeing")
+]
+# Selecciona muestras de la superficie antes y después del chamuscado
+
+# Eliminar categorías que ya no están presentes después de seleccionar muestras.
+tse_d4$Sampling.position <- droplevels(tse_d4$Sampling.position)
+tse_d4$Farmer <- droplevels(tse_d4$Farmer)
+
+# Comprobar cuántas muestras quedaron en cada grupo.
+table(tse_d4$Sampling.position)
