@@ -124,3 +124,20 @@ alpha <- as.data.frame(colData(tse_d4))[
 ]
 
 alpha
+
+# 4. COMPARAR LA DIVERSIDAD ALFA ---------------------------------------------
+
+# Las muestras de Sticking y After singeing corresponden a los mismos
+# cuatro animales. Por lo tanto, las observaciones están pareadas.
+
+# Extraer el número que identifica al animal desde el nombre de la muestra.
+
+alpha$animal <- gsub("\\D", "", alpha$Sample)
+
+
+# Ordenar las etapas para mostrarlas en su orden temporal.
+
+alpha$Sampling.position <- factor(
+  alpha$Sampling.position,
+  levels = c("Sticking", "After singeing")
+)
