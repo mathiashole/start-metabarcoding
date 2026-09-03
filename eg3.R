@@ -89,3 +89,11 @@ tse_d4 <- addAlpha(
   index = "observed_richness",
   name = "observed"
 )
+
+# Shannon: combina riqueza y distribución de abundancias.
+tse_d4 <- addAlpha(
+  tse_d4,
+  assay.type = "subsampled",
+  index = "shannon_diversity",
+  name = "shannon"
+)
