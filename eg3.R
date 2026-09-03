@@ -123,3 +123,4 @@ alpha <- as.data.frame(colData(tse_d4))[
   )
 ]
 
+alpha
