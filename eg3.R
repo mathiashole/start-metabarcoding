@@ -141,3 +141,21 @@ alpha$Sampling.position <- factor(
   alpha$Sampling.position,
   levels = c("Sticking", "After singeing")
 )
+
+
+# Comprobar que los animales estén en el mismo orden en ambas etapas.
+
+animales_sticking <- alpha$animal[
+  alpha$Sampling.position == "Sticking"
+]
+
+animales_singeing <- alpha$animal[
+  alpha$Sampling.position == "After singeing"
+]
+
+pares_animales <- data.frame(
+  Sticking = animales_sticking,
+  After_singeing = animales_singeing
+)
+
+pares_animales
