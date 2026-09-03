@@ -251,3 +251,32 @@ resultados_wilcoxon$p_ajustado_BH <- p.adjust(
 )
 
 resultados_wilcoxon
+
+# 4.1. ESTADÍSTICAS DESCRIPTIVAS ---------------------------------------------
+
+# Media y desviación estándar: resumen basado en el promedio.
+
+media_alpha <- aggregate(
+  cbind(
+    observed,
+    shannon,
+    simpson_evenness,
+    chao1
+  ) ~ Sampling.position,
+  data = alpha,
+  FUN = mean
+)
+
+sd_alpha <- aggregate(
+  cbind(
+    observed,
+    shannon,
+    simpson_evenness,
+    chao1
+  ) ~ Sampling.position,
+  data = alpha,
+  FUN = sd
+)
+
+media_alpha
+sd_alpha
