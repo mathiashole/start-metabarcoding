@@ -159,3 +159,29 @@ pares_animales <- data.frame(
 )
 
 pares_animales
+
+# Si los identificadores no coinciden, R detiene el análisis para evitar
+# comparar entre sí muestras pertenecientes a animales diferentes.
+
+stopifnot(
+  animales_sticking == animales_singeing
+)
+
+
+# EJEMPLO: ¿qué haríamos si las muestras fueran independientes?
+#
+# En ese caso podríamos utilizar la fórmula:
+#
+# wilcox.test(
+#   shannon ~ Sampling.position,
+#   data = alpha,
+#   exact = FALSE
+# )
+#
+# Este comando no se utiliza aquí porque se siguieron los mismos
+# animales antes y después del chamuscado.
+
+
+# Aplicar la prueba de Wilcoxon pareada para cada índice.
+# La prueba evalúa si existe un cambio sistemático dentro de los animales
+# entre Sticking y After singeing.
